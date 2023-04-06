@@ -45,3 +45,26 @@ Partindo do princípio que as ferramentas acima estão instaladas:
 
 ## **Aula 23 - Setup Inicial do Projeto**
 ### **Descrição**
+No diretório raiz criaremos o projeto Angular. A estrutura de diretórios será:
+
+```
+/
+├───API
+│   └───curso_adonis_api_yt
+└───Front-End
+    └───moments
+```
+
+### **Parte Um**
+No diretório Front-end:
+- execute o comando ng new moments
+- responda *y* para a pergunta
+- escolha **CSS**
+
+### **Parte Dois**
+Segundo o vídeo, no repositório [curso_angular_yt](https://github.com/matheusbattisti/curso_angular_yt/tree/19_projeto_moments), na branch *19_projeto_moments*, temos um conjunto de arquivos de imagens, as quais usaremos. Estão em *curso_angular_yt/moments/mock-moment-images/*.
+
+Copiaremos a pasta *mock-moment-images* para o diretório raiz do projeto *moments*, */Front-End/moments*.
+
+### **Parte Três**
+No diretório *src/app/*, no arquivo *__app.component.html__*, apagar toda a pré-configuração gerada.
