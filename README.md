@@ -69,7 +69,7 @@ Copiaremos a pasta *mock-moment-images* para o diretório raiz do projeto *momen
 ### **Parte Três**
 No diretório *src/app/*, no arquivo *__app.component.html__*, apagar toda a pré-configuração gerada.
 
-## **Aula 23 - Estruturando o Projeto**
+## **Aula 24 - Estruturando o Projeto**
 ### **Descrição** 
 Gerando novos componentes:
 - ng generate component components/header
@@ -90,7 +90,23 @@ Em *__header.component.html__*, *__footer.component.html__*, *__about.component.
 
 Em *__app-routing.module.ts__* incluiremos as rotas para as páginas Home e About.
 
-E estilizaremos o CSS no arquivo global.
+Em *__header.component.html__* adicionamos uma nav-bar com *routerLink* para as páginas *home* e *about*.
 
+E estilizaremos o CSS no arquivo global, no caso *__styles.css__*.
 
+## **Aula 25 - CSS nos Componentes de Layout**
+### **Descrição**
+- Vamos estilizar os componentes estáticos, no caso o cabeçalho (*header*) e o rodapé (*footer*) da página.
+- Também vamos preparar o corpo da página.
 
+#### **Passos executados:**
+- gerando novo componente: *ng generate component components/pages/new-moment*
+- adicionando a rota *{ path: 'moments/new', component: NewMomentComponent },* no arquivo *__app-routing.module.ts__*
+- em *__header.component.html__* adicionamos um *routerLink* para a página *new-moment* e alteramos um pouco sua estrutura
+- em *__index.html__* endereçamos o local do *favicon.png*
+- em *__footer.component.html__* simplesmente configuramos uma tag footer
+
+#### **Passos executados - Scoped:**
+Alteramos com o CSS de cada componente, no caso, o *header* e *footer* para a forma ideal de visualização da página.
+
+Um ponto interessante é que estilizamos o arquivo *__app.component.css__* para que o *corpo* da página tenha no mínimo 65% da altura da tela, o que faz com que o *footer* fique na parte inferior da página web.
