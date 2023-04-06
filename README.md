@@ -43,5 +43,11 @@ Partindo do princípio que as ferramentas acima estão instaladas:
 ### **Descrição** 
 [Aqui](#setup-adonis) está o passo a passo do setup da API porém, também temos a vídeo-aula [aqui](https://www.youtube.com/watch?v=xTCBaGeYTck&list=PLnDvRpP8Bnex2GQEN0768_AxZg_RaIGmw&index=22).
 
+Podemos usar o Postman para verificar se a API está funcionando; basta usar o comando **node ace serve**, abrir o Postman e fazer uma requisição GET com a seguint URL:
+
+- **http://127.0.0.1:3333/api/moments**
+
+Ela retornará uma lista vazia.
+
 ## **Aula 23 - Setup Inicial do Projeto**
 ### **Descrição**
