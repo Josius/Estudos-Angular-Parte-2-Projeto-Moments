@@ -68,3 +68,29 @@ Copiaremos a pasta *mock-moment-images* para o diretório raiz do projeto *momen
 
 ### **Parte Três**
 No diretório *src/app/*, no arquivo *__app.component.html__*, apagar toda a pré-configuração gerada.
+
+## **Aula 23 - Estruturando o Projeto**
+### **Descrição** 
+Gerando novos componentes:
+- ng generate component components/header
+- ng generate component components/footer
+- ng generate component components/pages/about (*componente para páginas*)
+- ng generate component components/pages/home (*componente para páginas*)
+
+Em *__app.component.html__* chamamos as tags dos componentes:
+```html
+<app-header></app-header>
+<main class="container">
+	<router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>
+```
+
+Em *__header.component.html__*, *__footer.component.html__*, *__about.component.html__* e *__home.component.html__* alteramos inicialmente com seus próprios nomes e uma nav-bar em *header*.
+
+Em *__app-routing.module.ts__* incluiremos as rotas para as páginas Home e About.
+
+E estilizaremos o CSS no arquivo global.
+
+
+
