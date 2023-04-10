@@ -110,3 +110,13 @@ E estilizaremos o CSS no arquivo global, no caso *__styles.css__*.
 Alteramos com o CSS de cada componente, no caso, o *header* e *footer* para a forma ideal de visualização da página.
 
 Um ponto interessante é que estilizamos o arquivo *__app.component.css__* para que o *corpo* da página tenha no mínimo 65% da altura da tela, o que faz com que o *footer* fique na parte inferior da página web.
+
+## **Aula 26 - Página de Formulário**
+### **Descrição**
+- primeiro, criaremos um novo componente para o formulário
+- em seguida, alteramos *__new-moment.component.html__* alocando o componente de formulário criado
+- alteraremos agora o arquivo html do componente de formulário, alocando locais para preenchimento do título, descrição, upload da foto e um botão de envio
+- *btnText* é uma propriedade do componente de formulário e precisa ser preenchido com texto no componente pai, no caso, *__new-moment.component.html__* e *__new-moment.component.ts__*
+- o texto de *btnText* é dinâmica e será conforme o componente usado, no caso de edição será uma outra mensagem
+- completados esses passos, vamos estilizar globalmente o formulário
+- por fim, vamos melhorar o título principal da página, no caso, em *__new-moment.componet.css__* 
