@@ -120,3 +120,35 @@ Um ponto interessante é que estilizamos o arquivo *__app.component.css__* para 
 - o texto de *btnText* é dinâmica e será conforme o componente usado, no caso de edição será uma outra mensagem
 - completados esses passos, vamos estilizar globalmente o formulário
 - por fim, vamos melhorar o título principal da página, no caso, em *__new-moment.componet.css__* 
+
+## **Aula 27 - Criando Interfaces e Configurando Módulos**
+### **Descrição**
+**Importações**
+- importaremos em *__app.component.ts__*:
+  - HttpClientModule
+  - FormsModule
+  - ReactiveFormsModule - para validações de formulário
+- e declararemos no campo imports
+
+**Inferface**
+- no nível do diretório app criaremos a pasta interface, a qual armazenará todas as nossas interfaces
+- no caso, criaremos a interface *__Moments.ts__*
+  - a qual poderá receber ou não um id (*por exemplo, ao criar um momento, não precisamos de um id*)
+  - também terá os outros dados obrigatórios: *title, description, image*
+  - e os seguintes dados opcionais: *created_at, updated_at e comments*
+- também criaremos as interfaces:
+  -  *__Comments.ts__* - para comentários
+  -  *__Response.ts__* - para trabalharmos com respostas com mais dados e trabalharemos com as duas entidades, *Comment* e *Moment*:
+  
+  ```ts
+	export interface Response<T> {
+		message?: string;
+		data: T
+	}
+  ```
+  - *T* é um *generic*, o qual representa algo que pode vir do BD, como um comentário ou um momento
+
+**Services**
+- agora criaremos um service com o comando:
+> `ng generate service services/nome-do-service`
+- no caso, criaremos 3 services, *moment, comment e messages*
