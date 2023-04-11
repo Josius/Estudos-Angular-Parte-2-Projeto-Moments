@@ -152,3 +152,74 @@ Um ponto interessante é que estilizamos o arquivo *__app.component.css__* para 
 - agora criaremos um service com o comando:
 > `ng generate service services/nome-do-service`
 - no caso, criaremos 3 services, *moment, comment e messages*
+
+## **Aula 28 - Validação de Formulário com Reactive Forms**
+### **Descrição**
+- alteraremos o componente *moment-form*
+    1. em *moment-form.component.html*, definir qual método ativar quando enviar um formulário
+   		- usar diretiva *ngSubmit* que disparará o método *.submit()* do *moment-form.component.ts*
+    2. em *moment-form.component.ts* criamos o método *.submit()*
+    3. em *moment-form.component.html*, declararemos um grupo de formulário para o angular conseguir mapear os inputs e disparar as validações
+    	- *[formGroup]* do *FormsModule*, com o nome do formulário
+	4. em *moment-form.component.ts* criaremos *formGroup*, o qual será preenchido com o tempo, não esquecendo de importa-lo do *@angular/forms*
+	5. em *moment-form.component.html*, declaramos qual é o formulário ou aonde é o formulário 
+   		- *#formDir="ngForm"* entenderá que é um formulário e conseguiremos mapear após o *.submit()*
+	
+**Vamos criar as validações:**
+  - em *moment-form.component.html* criamos o atributo *formControlName=""* para dar o nome deste atributo para o formulário, o qual é ligado com o formulário que será criado depois no componente
+  - e também criamos a div de validação, a qual é disponibilizada através de um *ngIf*
+  - vamos para *moment-form.component.ts* para criar os dados necessários para validação e inicializar o formulário:
+  ```ts
+  ngOnInit(): void{
+    this.momentForm = new FormGroup({
+      id: new FormControl(''),
+      title: new FormControl(''),
+      description: new FormControl(''),
+      image: new FormControl('')
+    })
+  }
+  ```
+
+**Vamos declarar os validators**
+- em *moment-form.component.ts* importamos os *Validators*, o qual permitirá disparo de validação com base do valor ser ou não vazio:
+```ts
+  title: new FormControl('', [Validators.required]),
+  description: new FormControl('', [Validators.required]),
+```
+
+**Inicializando as propriedades**
+- quando trabalhamos com formulário reativo no Angular, não inicializamos com propriedades
+- nós criamos um método *get*, para pegar o atributo *title* e *description* presentes no objeto *momentForm* recém inicializado no *.ngOnInit()*
+
+**Outras validações**
+- podemos fazer outras validações em *moment-form.component.html*, como a verificação do próprio dado requerido:
+  ```html
+  <p *ngIf="title.errors?.['required']">O título é obrigatório.</p>
+  ```
+
+- ou a verificação da quantidade máxima de caracteres digitados:
+	```html
+  <p *ngIf="title.errors?.['maxLength']">O título é obrigatório.</p>
+  ```
+
+- podemos melhorar com uma trava de validação no método *.submit()* do arquivo *moment-form.component.ts*, o que impedirá o envio do formulário sem os dados necessários:
+  ```ts
+  submit(){
+    if (this.momentForm.invalid) {
+      return;
+    }
+    console.log("Enviou formulário");
+  }
+  ```
+- para isso também temos de alterar o *moment-form.component.html*:
+```html
+<div class="form-group">
+  <label for="description">Descrição:</label>
+  <textarea placeholder="O que aconteceu lá?" formControlName="description" required></textarea>
+</div>
+<div *ngIf="description.invalid && formDir.submitted" class="validation-error">
+  <p *ngIf="description.errors?.['required']">A descrição é obrigatória.</p>
+</div>
+```
+
+Por fim, vamos alterar o css global das validações
