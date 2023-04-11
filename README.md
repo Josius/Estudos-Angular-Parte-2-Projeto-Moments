@@ -223,3 +223,23 @@ Um ponto interessante é que estilizamos o arquivo *__app.component.css__* para 
 ```
 
 Por fim, vamos alterar o css global das validações
+
+## **Aula 29 - Inserindo Dados no Sistema**
+### **Descrição**
+**Trabalhando com a imagem**
+- em *__moment-form.component.html__*, no *input* da imagem colocaremos um evento de *change* e um método correspondente a ele em *__moment-form.component.ts__*
+- o método no caso é *.onFileSelected()* o qual é responsável por jogar a imagem no formulário
+
+**Emitindo um evento para o componente pai**
+- em *__new-moment.component.html__* pegaremos um evento *(onSubmit)="createHandler($event)"*
+- em *__new-moment.component.ts__* criamos o método *.createHandler()*
+- em *__moment-form.component.ts__* importamos o *@Output()* e adicionamos esse código *this.onSubmit.emit(this.momentForm.value);* no método *.submit()* do mesmo arquivo
+- em *__new-moment.component.ts__* trataremos os dados que chegam para poder fazer a inserção no sistema a partir do service depois
+- ainda neste arquivo, vamos importar a interface de Moment
+- o método *.createHandler()* receberá um *Moment* e terá operações assíncronas, pois estará esperando algo da API
+- ele também manipulará o formulário do Angular e o tornará em um *FormData*, um estrutura de formulário padrão do JS
+
+**Enviar para o service**
+- em *moment.service.ts*, importamos o *HttpClient*, *Observable* e a interface *Moment*
+
+# CONTINUAR EM 07:20 AULA 29
