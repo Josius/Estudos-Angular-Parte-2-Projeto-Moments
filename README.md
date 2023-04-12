@@ -243,7 +243,7 @@ Por fim, vamos alterar o css global das validações
 - o método *.createHandler()* receberá um *Moment* e terá operações assíncronas, pois estará esperando algo da API
 - ele também manipulará o formulário do Angular e o tornará em um *FormData*, um estrutura de formulário padrão do JS
 
-**Enviar para o service**
+## **Enviar para o service**
 - em *moment.service.ts*, importamos o *HttpClient*, *Observable* e a interface *Moment*
 
 **Configurar as URLs**
@@ -258,4 +258,28 @@ Benefícios:
 
 > `ng generate environments`
 
--  no arquvio *__environments.ts__* dentro deste diretório:
+-  no arquvio *__environments.ts__* dentro deste diretório vamos colocar mais parâmetros, e mudando o ambiente podemos mudar as configurações neste arquivo.
+-  O arquivo ficará da seguinte forma:
+
+```ts
+export const environment = {
+	production: false,
+	baseApiUrl: 'http://localhost:3333/',
+};
+```
+
+- a variável *baseApiUrl* é referente ao endereço da API, no caso, a criada com [AdonisJS](#setup-adonis).
+
+**Recebendo os Dados da API**
+- em *__moment.service.ts__* importamos o *environment*
+- criamos um atributo privado que recebe a *baseApiUrl*
+- criamos um atributo privado que usa a *baseApiUrl* mais o end-point para moments
+- iniciamos o *HttpClient* no *constructor*
+- criamos um método *.createMoment()* que retorna a resposta http do método post quando der certo ao enviar os dados de criação de um moment
+
+**Enviar para o service**
+
+Feitas as configurações acima, poderemos criar o método que enviará para o service o momento criado. Em *__new-moment.component.ts__*:
+- importamos o *MomentService*
+- inicializamos no *constructor* o *momentService*
+- e chamamos o método *.createMoment()* do *momentService* passando o *formData*, dando um *.subscribe()* e um *await*
