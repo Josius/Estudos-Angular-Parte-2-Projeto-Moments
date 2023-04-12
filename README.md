@@ -283,3 +283,8 @@ Feitas as configurações acima, poderemos criar o método que enviará para o s
 - importamos o *MomentService*
 - inicializamos no *constructor* o *momentService*
 - e chamamos o método *.createMoment()* do *momentService* passando o *formData*, dando um *.subscribe()* e um *await*
+
+NOTA: Aula 29 foi commitada em aula 28
+
+## **Aula 29 - Inserindo Dados no Sistema**
+### **Descrição**
