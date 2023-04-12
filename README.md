@@ -12,6 +12,10 @@
 > - OS: win32 x64
 > - [Package Json-Server](https://www.macoratti.net/17/08/ang2_jssv1.htm)
 
+## **NOTA IMPORTANTE:** 
+Como estamos usando a versão 15.2.1 do Angular, ele por padrão não gera o diretório *environments*, para isso precisamos usar o seguinte comando para gerar este diretório com seus arquivos:
+> `ng generate environments`
+
 ## **O que é AdonisJs**
 - framework Node.js, usado para desenvolver aplicações web
 - usado como back-end da API
@@ -242,4 +246,16 @@ Por fim, vamos alterar o css global das validações
 **Enviar para o service**
 - em *moment.service.ts*, importamos o *HttpClient*, *Observable* e a interface *Moment*
 
-# CONTINUAR EM 07:20 AULA 29
+**Configurar as URLs**
+
+Benefícios:
+- não precisaremos repetir as urls, logo as centralizaremos para não trocar em várias partes do código
+- poderemos ter um urls de:
+  - produção
+  - homologação
+  - desenvolvimento
+- para executar as configurações acima, vamos criar o diretório *environments* e seus arquivos com o comando:
+
+> `ng generate environments`
+
+-  no arquvio *__environments.ts__* dentro deste diretório:
