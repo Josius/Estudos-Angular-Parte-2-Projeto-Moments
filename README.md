@@ -286,5 +286,87 @@ Feitas as configurações acima, poderemos criar o método que enviará para o s
 
 NOTA: Aula 29 foi commitada em aula 28
 
-## **Aula 29 - Inserindo Dados no Sistema**
-### **Descrição**
+## **Aula 30 - Iniciando Componente de Mensagem**
+## **Exibir mensagem**
+### **Instalações e criações**
+Criamos um componente de mensagens com:
+> `ng generate component components/messages`
+
+Utilizaremos uma biblioteca de ícones chamada *fortawesome*:
+> `ng add @fortawesome/angular-fontawesome`
+
+### **Configurando componente de mensagens**
+- em *__messages.component.html__* estruturamos o html
+- em *__messages.component.ts__* importamos *faTimes* da biblioteca *fortawesome* e iniciamos ele como propriedade, agora poderemos usar no arquivo html
+- feito isso, voltamos para *__messages.component.html__* e criamos uma tag que receberá o *faTimes*, na tag *button*
+- agora adicionaremos esse componente ao projeto em *app.component.html*
+- e depois estilizaremos o CSS
+- após isso, vamos configurar as funcionalidades
+
+**Em messages.component.ts:**
+- importamos o *MessageService*
+- inicializamos ele no *constructor* como *public* para ter acesso ao template
+
+**Em messages.services.ts:**
+- criamos uma propriedade *message-string-vazia* que estará condicionada ao pop-up da mensagem do sistema
+
+**Voltando para messages.component.html:**
+- adicionamos o seguinte ngIf a tag div principal
+> `*ngIf="messagesService.message"`
+- e colocamos o texto da mensagem dinamicamente na última tag, a de parágrafo
+> `<p>{{ messagesService.message }}</p>`
+
+## **Aula 31 - Finalizando Sistema de Mensagens**
+## **Exibir mensagem - continuação**
+Iremos criar dois métodos no *__message.service.ts__*
+- para adicionar a mensagem
+- para limpar a mensagem
+  
+Em *__new-moment.component.ts__* 
+- importamos o *MessagesService*
+- inicializamos ele no *constructor*
+
+Em *__messages.component.html__* 
+- ao clicar no botão, ele chamará o método *.clear()* para fechar a mensagem ao clicar no *'xis'*
+
+## **Redirect**
+- importaremos o *Router* em *__new-moment.component.ts__*
+- iniciamos no *constructor*
+- e chamamos o método *.navigate()* passando a rota de redirecionamento
+
+## **Aula 31 - Parte 2- Finalizando Página About/Sobre**
+No componente **about:** 
+- estruturamos o html
+- estilizamos o CSS
+
+## **Aula 32 - Resgatando Dados do Banco**
+Agora vamos trabalhar com a página Home. 
+
+Em *__home.component.ts__*:
+- importamos o *MomentService*
+- importamos a interface *Moment*
+- importamos o *environment* para pegar a URL do arquivo de configuração
+- importamos o *faSearch* o ícone de busca
+- criamos dois arrays para os momentos, um para os dados do BD e outro para o filtro de exibição após a busca
+- atribuimos a *baseApiUrl* para buscar dados da API
+- em *ngOnInit* ocorrerá a inicialização dos momentos buscando service, então teremos um método de recepção de dados, mas para isso precisamos alterar o service
+
+Em *__moment.service.ts__*:
+- importamos a interface *Response*
+- criamos um método responsável para retornar todos os momentos do BD, usando a interface *Response*
+
+Voltando para *__home.component.ts__*:
+- invocamos o método *.getMoments()* com *subscribe* e recebendo *itens*, além de usar *map* e outras configurações a mais
+
+Agora iremos altear o html para visualizar o que estamos recebendo do BD.
+
+Em *__home.component.html__*:
+- estruturamos a visualização dos dados recebidos do BD com um *\*ngFor*
+
+## **Aula 33 - Finalizando a Home**
+Em *__home.component.html__*:
+- usaremos um verificação para se acaso não houver um *moments*, será visualizado um bloco informando isso; usaremos o *ngIf* e o *ngTemplate*
+- alocamos o *\*ngFor* dentro de uma *div*
+- atribuímos as outras características como imagem, data, comentários e link para acessar o momento
+- após tudo isso, vamos alterar o CSS da página
+NOTA: os comentários tem um ! para indicar que eles podem ou não ter, pois quando criamos um moment não temos um comentário
